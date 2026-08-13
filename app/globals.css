@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+  --bg: #ffffff;
+  --bg-secondary: #f2f2f2;
+  --ink: #131313;
+  --ink-muted: #7b7b7b;
+  --accent: #d6fd70;
+}
+
+html {
+  scroll-behavior: smooth;
+  color: #131313;
+  background-color: #ffffff;
+}
+
+body {
+  font-family: var(--font-jakarta), sans-serif;
+  color: #131313;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism helpers */
+.frosted-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.frosted-glass-dark {
+  background: rgba(19, 19, 19, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Edge fade mask for Marquees */
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f2f2f2;
+}
+::-webkit-scrollbar-thumb {
+  background: #7b7b7b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #131313;
+}

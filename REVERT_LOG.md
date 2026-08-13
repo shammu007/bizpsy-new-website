@@ -6,7 +6,18 @@ This document lists all snapshot checkpoints and exact commands to safely revert
 
 ## 📌 Checkpoint History
 
-### `v0.1-hero-checkpoint` (Current Working State)
+### `v0.2-webgl-circular-gallery` (Current Active Checkpoint)
+- **Tag**: `v0.2-webgl-circular-gallery`
+- **Commit**: WebGL Curved Card Gallery Integration & Hero Alignment
+- **Included Features**:
+  - WebGL OGL continuous curved card gallery ([`circular-gallery.tsx`](file:///Users/mohammedameenuddin/BizPsy/components/ui/circular-gallery.tsx)).
+  - 4 high-res vector card textures in [`/public/hero-cards/`](file:///Users/mohammedameenuddin/BizPsy/public/hero-cards/) (`velocity.svg`, `risk.svg`, `agents.svg`, `roi.svg`).
+  - Zero window scroll hijacking (natural page scroll intact).
+  - Shallow smile arc (`bend={3}`), distinct gap spacing (`2.25`), and enlarged card dimensions (`2.85 x 2.0`).
+  - Elevated Y position (`mesh.position.y = 0.75`) sitting directly below GET STARTED / VIEW DEMO buttons with zero gap.
+  - Verified clean production build (`npx next build --webpack`) with 0 errors.
+
+### `v0.1-hero-checkpoint` (Baseline Hero Shell)
 - **Tag**: `v0.1-hero-checkpoint`
 - **Commit**: Initial working project shell
 - **Included Features**:
@@ -14,7 +25,6 @@ This document lists all snapshot checkpoints and exact commands to safely revert
   - Centralized content-free data structure in [`lib/data.ts`](file:///Users/mohammedameenuddin/BizPsy/lib/data.ts).
   - Floating frosted glass [`Navbar`](file:///Users/mohammedameenuddin/BizPsy/components/sections/Navbar.tsx) with scroll auto-hide & full-screen menu drawer.
   - Rounded sky panel [`Hero`](file:///Users/mohammedameenuddin/BizPsy/components/sections/Hero.tsx).
-  - Auto-rotating interactive 3D cylinder [`ThreeDCardCarousel`](file:///Users/mohammedameenuddin/BizPsy/components/ui/3d-carousel.tsx) with branded dashboard cards in [`lib/hero-cards.tsx`](file:///Users/mohammedameenuddin/BizPsy/lib/hero-cards.tsx).
   - Continuous progressive fan/arc [`HeroMarquee`](file:///Users/mohammedameenuddin/BizPsy/components/ui/HeroMarquee.tsx) primitive.
   - Unified surface [`Services`](file:///Users/mohammedameenuddin/BizPsy/components/sections/Services.tsx) section with dividers.
   - Signature word-by-word scroll reveal [`RevealHeading`](file:///Users/mohammedameenuddin/BizPsy/components/ui/RevealHeading.tsx).
@@ -37,9 +47,13 @@ If only one file has an error (e.g. `lib/data.ts` or `app/page.tsx`):
 git checkout HEAD -- lib/data.ts
 ```
 
-### Option 3: Return to the `v0.1-hero-checkpoint` Tag
-If you made multiple commits and want to jump straight back to this exact baseline checkpoint:
+### Option 3: Return to any Tagged Checkpoint
+If you want to jump straight back to a specific tagged checkpoint:
 ```bash
+# Return to current WebGL circular gallery checkpoint
+git reset --hard v0.2-webgl-circular-gallery
+
+# Return to baseline Hero marquee checkpoint
 git reset --hard v0.1-hero-checkpoint
 ```
 
@@ -57,7 +71,7 @@ git stash pop
 
 ## 🛠 Project File Map & References
 - **All Content/Copy**: [`lib/data.ts`](file:///Users/mohammedameenuddin/BizPsy/lib/data.ts)
-- **Hero 3D Cards**: [`lib/hero-cards.tsx`](file:///Users/mohammedameenuddin/BizPsy/lib/hero-cards.tsx)
-- **3D Carousel Logic**: [`components/ui/3d-carousel.tsx`](file:///Users/mohammedameenuddin/BizPsy/components/ui/3d-carousel.tsx)
+- **WebGL Gallery Logic**: [`components/ui/circular-gallery.tsx`](file:///Users/mohammedameenuddin/BizPsy/components/ui/circular-gallery.tsx)
+- **Hero Section**: [`components/sections/Hero.tsx`](file:///Users/mohammedameenuddin/BizPsy/components/sections/Hero.tsx)
 - **Main Layout**: [`app/layout.tsx`](file:///Users/mohammedameenuddin/BizPsy/app/layout.tsx)
 - **Design Specs**: [`design.md`](file:///Users/mohammedameenuddin/BizPsy/design.md)

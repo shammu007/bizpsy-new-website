@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="520" viewBox="0 0 700 520">
+  <rect width="700" height="520" rx="36" fill="#D6FD70"/>
+  
+  <!-- Header row -->
+  <rect x="56" y="44" width="60" height="60" rx="18" fill="#131313"/>
+  <path d="M86 62 L96 72 L86 86 L76 72 Z" fill="#D6FD70"/>
+  
+  <rect x="520" y="44" width="136" height="44" rx="10" fill="rgba(19,19,19,0.12)"/>
+  <text x="588" y="73" fill="#131313" font-family="'Geist Mono', monospace" font-size="20" font-weight="600" text-anchor="middle">VERIFIED</text>
+  
+  <!-- Content -->
+  <text x="56" y="210" fill="rgba(19,19,19,0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="28">Risk Reduction Index</text>
+  <text x="56" y="320" fill="#131313" font-family="'Plus Jakarta Sans', sans-serif" font-size="80" font-weight="500" letter-spacing="-2">-84% Anomaly</text>
+  
+  <!-- Footer -->
+  <text x="56" y="435" fill="rgba(19,19,19,0.8)" font-family="'Geist Mono', monospace" font-size="22" font-weight="500" letter-spacing="3">THREAT MITIGATION COMPLETE</text>
+</svg>

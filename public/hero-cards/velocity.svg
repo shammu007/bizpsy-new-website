@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="520" viewBox="0 0 700 520">
+  <rect width="700" height="520" rx="36" fill="#131313" stroke="rgba(255,255,255,0.15)" stroke-width="4"/>
+  
+  <!-- Header row -->
+  <circle cx="56" cy="64" r="10" fill="#D6FD70"/>
+  <text x="80" y="70" fill="rgba(255,255,255,0.6)" font-family="'Geist Mono', monospace" font-size="22" font-weight="500" letter-spacing="3">OPTIMIZED</text>
+  
+  <rect x="520" y="44" width="136" height="44" rx="22" fill="rgba(214,253,112,0.15)"/>
+  <text x="588" y="73" fill="#D6FD70" font-family="'Geist Mono', monospace" font-size="20" font-weight="600" text-anchor="middle">+12.4%</text>
+  
+  <!-- Content -->
+  <text x="56" y="210" fill="rgba(255,255,255,0.6)" font-family="'Plus Jakarta Sans', sans-serif" font-size="28">Decision Matrix Velocity</text>
+  <text x="56" y="320" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="96" font-weight="500" letter-spacing="-3">94.8%</text>
+  
+  <!-- Progress Bar -->
+  <rect x="56" y="420" width="588" height="24" rx="12" fill="rgba(255,255,255,0.12)"/>
+  <rect x="56" y="420" width="500" height="24" rx="12" fill="#D6FD70"/>
+</svg>

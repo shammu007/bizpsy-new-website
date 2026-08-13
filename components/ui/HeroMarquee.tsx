@@ -10,62 +10,81 @@ import {
   GrowthCard,
 } from "@/components/ui/MockupCards";
 
-interface FanCardWrapperProps {
-  children: React.ReactNode;
-  index: number;
-  totalCards: number;
-  shouldReduceMotion: boolean;
-}
+const CARD_STYLES = [
+  {
+    id: "card-1",
+    rotateZ: -3.5,
+    rotateY: 6,
+    scale: 0.98,
+    zIndex: 10,
+    floatDuration: 4.2,
+    floatDelay: 0,
+  },
+  {
+    id: "card-2",
+    rotateZ: 3.5,
+    rotateY: -6,
+    scale: 1.02,
+    zIndex: 20,
+    floatDuration: 4.8,
+    floatDelay: 0.7,
+  },
+  {
+    id: "card-3",
+    rotateZ: -2.5,
+    rotateY: 8,
+    scale: 0.95,
+    zIndex: 10,
+    floatDuration: 3.8,
+    floatDelay: 1.4,
+  },
+  {
+    id: "card-4",
+    rotateZ: 4.0,
+    rotateY: -5,
+    scale: 1.0,
+    zIndex: 20,
+    floatDuration: 5.0,
+    floatDelay: 2.1,
+  },
+];
 
-function FanCardWrapper({
+function CardWrapper({
   children,
-  index,
-  totalCards,
+  styleIndex,
   shouldReduceMotion,
-}: FanCardWrapperProps) {
-  // Compute normalized position t in range [-1, 1] across the set
-  const t = totalCards > 1 ? (index / (totalCards - 1)) * 2 - 1 : 0;
-
-  // Progressive Monotonic Fan/Arc Formulas:
-  // 1. Monotonic linear rotation ramp from -7deg to +7deg
-  const rotateZ = t * 7;
-
-  // 2. Parabolic vertical arc (center elevated at ~-8px, edges dropped at ~+28px)
-  const baseTranslateY = t * t * 36 - 8;
-
-  // 3. Depth scaling: center cards at 1.0, edge cards at 0.92
-  const scale = 1 - t * t * 0.08;
-
-  // 4. Staggered zIndex: center cards on top
-  const zIndex = Math.round(30 - Math.abs(t) * 15);
-
-  // Per-card float duration & delay
-  const floatDuration = 4.0 + (index % 3) * 0.8;
-  const floatDelay = index * 0.5;
+}: {
+  children: React.ReactNode;
+  styleIndex: number;
+  shouldReduceMotion: boolean;
+}) {
+  const config = CARD_STYLES[styleIndex % CARD_STYLES.length];
 
   return (
     <div
-      style={{ zIndex }}
-      className="shrink-0 -mx-4 sm:-mx-6 transition-transform duration-300 transform-gpu will-change-transform group/card hover:z-50"
+      style={{
+        zIndex: config.zIndex,
+      }}
+      className="shrink-0 -mx-2 sm:-mx-4 transition-transform duration-500 hover:scale-105 hover:z-30 hover:rotate-0 transform-gpu will-change-transform"
     >
-      {/* Rigid 3D Arc Transform Layer */}
+      {/* 3D Tilt Layer */}
       <div
-        className="transform-gpu will-change-transform transition-transform duration-300 group-hover/card:scale-105 group-hover/card:rotate-0"
+        className="transition-transform duration-500 transform-gpu"
         style={{
-          transform: `translateY(${baseTranslateY}px) rotateZ(${rotateZ}deg) scale(${scale})`,
+          transform: `rotateZ(${config.rotateZ}deg) rotateY(${config.rotateY}deg) scale(${config.scale})`,
           transformStyle: "preserve-3d",
         }}
       >
-        {/* Independent Vertical Float Oscillation (±7px) */}
+        {/* Independent Floating Vertical Bob */}
         <motion.div
-          animate={shouldReduceMotion ? false : { y: [-7, 7, -7] }}
+          animate={shouldReduceMotion ? false : { y: [-8, 8, -8] }}
           transition={{
-            duration: floatDuration,
+            duration: config.floatDuration,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: floatDelay,
+            delay: config.floatDelay,
           }}
-          className="shadow-[0_24px_48px_rgba(0,0,0,0.14)] rounded-card transform-gpu will-change-transform"
+          className="shadow-[0_20px_40px_rgba(0,0,0,0.18)] rounded-card transform-gpu will-change-transform"
         >
           {children}
         </motion.div>
@@ -104,18 +123,16 @@ export function HeroMarquee() {
     />,
   ];
 
-  const totalCards = cardList.length;
-
   return (
     <div
-      className="relative w-full overflow-hidden select-none py-10 marquee-mask"
-      style={{ perspective: "1400px" }}
+      className="relative w-full overflow-hidden select-none py-6 marquee-mask"
+      style={{ perspective: "1200px" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Rigid Moving Flex Track: translateX 0% -> -50% */}
+      {/* Track moving translateX 0% to -50% */}
       <motion.div
-        className="flex shrink-0 items-center transform-gpu will-change-transform px-4"
+        className="flex shrink-0 items-center transform-gpu will-change-transform"
         initial={{ x: "0%" }}
         animate={
           shouldReduceMotion || isHovered
@@ -129,31 +146,29 @@ export function HeroMarquee() {
           repeatType: "loop",
         }}
       >
-        {/* Set 1: Progressive Fan Arc */}
-        <div className="flex shrink-0 items-center pr-8">
+        {/* Set 1 */}
+        <div className="flex shrink-0 items-center pr-6">
           {cardList.map((card, idx) => (
-            <FanCardWrapper
+            <CardWrapper
               key={`set1-${idx}`}
-              index={idx}
-              totalCards={totalCards}
+              styleIndex={idx}
               shouldReduceMotion={shouldReduceMotion}
             >
               {card}
-            </FanCardWrapper>
+            </CardWrapper>
           ))}
         </div>
 
-        {/* Set 2: Identical Duplicated Fan Arc for Seamless Loop */}
-        <div className="flex shrink-0 items-center pr-8">
+        {/* Set 2 (Identical Duplicate for Seamless -50% Loop) */}
+        <div className="flex shrink-0 items-center pr-6">
           {cardList.map((card, idx) => (
-            <FanCardWrapper
+            <CardWrapper
               key={`set2-${idx}`}
-              index={idx}
-              totalCards={totalCards}
+              styleIndex={idx}
               shouldReduceMotion={shouldReduceMotion}
             >
               {card}
-            </FanCardWrapper>
+            </CardWrapper>
           ))}
         </div>
       </motion.div>

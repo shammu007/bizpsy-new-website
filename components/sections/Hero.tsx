@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import { HERO_DATA } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 import { RatingStars } from "@/components/ui/RatingStars";
-import { ThreeDCardCarousel } from "@/components/ui/3d-carousel";
-import { heroCards } from "@/lib/hero-cards";
+import { HeroMarquee } from "@/components/ui/HeroMarquee";
 
 export function Hero() {
   return (
@@ -59,7 +58,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center gap-4 z-10 mb-8 w-full sm:w-auto"
+          className="flex flex-col sm:flex-row items-center gap-4 z-10 mb-12 sm:mb-16 w-full sm:w-auto"
         >
           <Button
             href={HERO_DATA.ctaPrimary.href}
@@ -80,19 +79,14 @@ export function Hero() {
           </Button>
         </motion.div>
 
-        {/* 3D Auto-Rotating Card Carousel */}
+        {/* Hero Card Marquee (Zigzag Style) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="w-full z-10"
+          className="w-full z-10 pt-2"
         >
-          <ThreeDCardCarousel
-            cards={heroCards}
-            autoRotate
-            speed={7}
-            className="mx-auto mt-4 w-full max-w-5xl"
-          />
+          <HeroMarquee />
         </motion.div>
       </div>
     </section>

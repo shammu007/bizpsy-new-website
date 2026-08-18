@@ -140,23 +140,53 @@ export const LOGO_STRIP: Array<{ name: string; id: string }> = [
 ];
 
 export const ABOUT_DATA = {
-  eyebrow: "ABOUT OUR PLATFORM",
-  heading:
-    "We synthesize raw market noise into decisive competitive advantages for forward-thinking leadership.",
-  subhead:
-    "BizPsy bridges the gap between frontier AI capability and executive execution, turning high-volume data streams into clear strategic roadmaps.",
-  stats: [
-    { value: 98, suffix: "%", label: "Client retention rate" },
-    { value: 45, suffix: "k+", label: "Decision vectors processed" },
-    { value: 3.8, prefix: "", suffix: "x", label: "Average ROI boost" },
-  ],
-  snippet: {
-    quote:
-      "BizPsy cut our strategic alignment cycle from weeks to hours with precision AI insights.",
-    author: "Sarah Chen",
-    role: "Chief Strategy Officer, Apex Corp",
-    avatar: "/images/avatar-1.jpg",
+  eyebrow: "ABOUT US",
+  titleLine1: "A global consulting partner",
+  titleLine2: "dedicated to building",
+  titleLine3: "smarter and",
+  titleLine4: "more adaptive",
+  card1: {
+    logo: "IPSUM",
+    stat: "120+",
+    description: "Collaborating with leading AI and cloud technology providers.",
+    image: "/images/about-portrait.jpg",
   },
+  card2: {
+    label: "Commitment to measurable",
+    stat: "100%",
+    quote:
+      '"Their automation strategy completely reshaped how we work. It\'s efficient, intelligent, and seamless."',
+    avatars: [
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80",
+    ],
+  },
+  card3: {
+    label: "Data Points",
+    stat: "520k+",
+    subtext: "Analyzed monthly to power smarter business strategies.",
+  },
+  card4: {
+    label: "Continents",
+    stat: "20+",
+  },
+};
+
+export const HIGHLIGHT_BANNER_DATA = {
+  trustedText: "Trusted over 5,000+",
+  heading: "We combine human insight with artificial intelligence",
+  subhead:
+    "Our consulting team bridges strategic thinking and advanced AI technologies to help companies streamline processes, improve decision-making, and create intelligent digital experiences.",
+  ctaLabel: "GET STARTED",
+  ctaHref: "#pricing",
+  backgroundImage: "/images/banner-landscape.jpg",
+  avatars: [
+    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80",
+  ],
 };
 
 export const SERVICES_DATA: ServicesData = {
@@ -394,23 +424,21 @@ export const CTA_BANNER_DATA = {
 };
 
 export const FOOTER_DATA = {
-  tagline: "Architecting the next generation of AI-driven business intelligence.",
-  newsletterTitle: "Subscribe to strategic intelligence updates",
-  newsletterPlaceholder: "Enter your executive email...",
+  logoText: "BizPsy",
+  tagline:
+    "Easily adapt to changes and scale your operations with our flexible infrastructure, designed to support your business growth.",
+  newsletterTitle: "Subscribe our newsletter",
+  newsletterPlaceholder: "Enter your email",
   submitLabel: "SUBMIT",
-  copyright: "© 2026 BizPsy Consulting Inc. All rights reserved.",
-  col1Title: "NAVIGATION",
+  copyright: "© 2026 BizPsy Inc. All rights reserved.",
   col1Links: [
     { label: "Home", href: "#hero" },
-    { label: "About Us", href: "#about" },
+    { label: "About us", href: "#about" },
     { label: "Services", href: "#services" },
-    { label: "Expertise", href: "#expertise" },
   ],
-  col2Title: "RESOURCES",
   col2Links: [
     { label: "Pricing", href: "#pricing" },
     { label: "Blog", href: "#blog" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact Us", href: "#contact" },
+    { label: "Contact", href: "#contact" },
   ],
 };

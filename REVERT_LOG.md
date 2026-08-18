@@ -6,7 +6,16 @@ This document lists all snapshot checkpoints and exact commands to safely revert
 
 ## 📌 Checkpoint History
 
-### `v0.2-webgl-circular-gallery` (Current Active Checkpoint)
+### `v0.3-about-highlight-footer-complete` (Current Active State)
+- **Included Features**:
+  - 4K Ultra-Sharp Hero Card Assets (`velocity.svg`, `risk.svg`, `agents.svg`, `roi.svg`) + WebGL Anisotropic Texture Filtering (`EXT_texture_filter_anisotropic`).
+  - Photorealistic Sky & Cloud Hero Background (`/images/hero-sky-bg.jpg`) with rating badge positioned below 3D cards.
+  - Interactive **About Us** Section (`About.tsx`) with Bento Grid layout, custom inline icon chips (`Clock`, `Lightbulb`), and `RevealHeading` scroll-driven word reveal effect.
+  - Photographic **Highlight Banner** (`HighlightBanner.tsx`) with meadow landscape (`/images/banner-landscape.jpg`) placed below Services.
+  - Dark Rounded **Footer** Section (`Footer.tsx`) with quick links, brand tagline, pill newsletter form, and copyright.
+  - Verified clean production build (`npx next build --webpack`) with 0 errors.
+
+### `v0.2-webgl-circular-gallery`
 - **Tag**: `v0.2-webgl-circular-gallery`
 - **Commit**: WebGL Curved Card Gallery Integration & Hero Alignment
 - **Included Features**:

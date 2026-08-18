@@ -5,8 +5,17 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-export interface RevealHeadingProps {
+export interface RevealTokenObject {
   text: string;
+  prefixElement?: React.ReactNode;
+  suffixElement?: React.ReactNode;
+}
+
+export type RevealToken = string | RevealTokenObject;
+
+export interface RevealHeadingProps {
+  text?: string;
+  tokens?: RevealToken[];
   as?: "h1" | "h2" | "h3" | "h4" | "p";
   theme?: "light" | "dark";
   size?: "h1" | "h2" | "h3" | "body";
@@ -14,36 +23,60 @@ export interface RevealHeadingProps {
 }
 
 interface WordProps {
-  word: string;
+  token: RevealToken;
   index: number;
   totalWords: number;
   progress: MotionValue<number>;
   theme: "light" | "dark";
 }
 
-function Word({ word, index, totalWords, progress, theme }: WordProps) {
+function WordToken({ token, index, totalWords, progress, theme }: WordProps) {
   const start = index / totalWords;
   const end = Math.min(1, (index + 1) / totalWords);
 
   // Light theme: gray -> #131313. Dark theme: muted white -> #FFFFFF
-  const startColor = theme === "light" ? "#7B7B7B" : "rgba(255, 255, 255, 0.35)";
+  const startColor = theme === "light" ? "#94A3B8" : "rgba(255, 255, 255, 0.35)";
   const endColor = theme === "light" ? "#131313" : "#FFFFFF";
 
   const color = useTransform(progress, [start, end], [startColor, endColor]);
-  const opacity = useTransform(progress, [start, end], [0.4, 1]);
+  const opacity = useTransform(progress, [start, end], [0.35, 1]);
+
+  if (typeof token === "string") {
+    return (
+      <motion.span
+        style={{ color, opacity }}
+        className="inline-block transition-colors duration-150 mr-[0.25em] last:mr-0"
+      >
+        {token}
+      </motion.span>
+    );
+  }
 
   return (
     <motion.span
-      style={{ color, opacity }}
-      className="inline-block transition-colors duration-150 mr-[0.25em] last:mr-0"
+      style={{ opacity }}
+      className="inline-flex items-baseline gap-1.5 mr-[0.25em] last:mr-0"
     >
-      {word}
+      {token.prefixElement && (
+        <span className="inline-flex items-center align-baseline">
+          {token.prefixElement}
+        </span>
+      )}
+      <motion.span style={{ color }} className="inline-block">
+        {token.text}
+      </motion.span>
+      {token.suffixElement && (
+        <span className="inline-flex items-center align-baseline">
+          {token.suffixElement}
+        </span>
+      )}
     </motion.span>
   );
 }
 
 export function RevealHeading({
   text,
+  tokens: customTokens,
   as: Component = "h2",
   theme = "light",
   size = "h2",
@@ -53,10 +86,14 @@ export function RevealHeading({
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 85%", "start 30%"],
+    offset: ["start 85%", "start 35%"],
   });
 
-  const words = text.split(" ");
+  const tokensList: RevealToken[] = customTokens
+    ? customTokens
+    : text
+    ? text.split(" ")
+    : [];
 
   const sizeClasses = {
     h1: "text-[38px] sm:text-[48px] lg:text-[60px] leading-[1.12] tracking-[-0.06em] font-medium",
@@ -72,17 +109,17 @@ export function RevealHeading({
         clsx(
           sizeClasses[size],
           theme === "light" ? "text-ink" : "text-white",
-          "flex flex-wrap items-baseline",
+          "relative flex flex-wrap items-baseline",
           className
         )
       )}
     >
-      {words.map((word, index) => (
-        <Word
-          key={`${word}-${index}`}
-          word={word}
+      {tokensList.map((token, index) => (
+        <WordToken
+          key={typeof token === "string" ? `${token}-${index}` : `token-${index}`}
+          token={token}
           index={index}
-          totalWords={words.length}
+          totalWords={tokensList.length}
           progress={scrollYProgress}
           theme={theme}
         />

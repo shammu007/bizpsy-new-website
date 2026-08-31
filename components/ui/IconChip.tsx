@@ -26,8 +26,8 @@ export function IconChip({
   };
 
   const themeClasses = {
-    accent: "bg-accent text-ink shadow-card",
-    dark: "bg-ink text-accent shadow-card",
+    accent: "bg-[#F5F3FF] text-[#6D28D9] border border-[#DDD6FE]/70 shadow-sm",
+    dark: "bg-ink text-[#A78BFA] shadow-card",
     surface: "bg-surface text-ink border border-ink/10",
   };
 

@@ -98,22 +98,22 @@ export function GrowthCard({
   value = "-84%",
 }) {
   return (
-    <div className="w-[300px] shrink-0 rounded-card bg-accent text-ink p-5 shadow-float border border-ink/10 flex flex-col justify-between gap-4">
+    <div className="w-[300px] shrink-0 rounded-card bg-[#6D28D9] text-white p-5 shadow-float border border-purple-400/20 flex flex-col justify-between gap-4">
       <div className="flex items-center justify-between">
-        <div className="h-7 w-7 rounded-full bg-ink text-accent flex items-center justify-center">
+        <div className="h-7 w-7 rounded-full bg-white text-[#6D28D9] flex items-center justify-center">
           <ShieldCheck className="h-4 w-4" />
         </div>
-        <span className="font-mono text-[10px] uppercase tracking-widest bg-ink/10 px-2 py-0.5 rounded font-medium">
+        <span className="font-mono text-[10px] uppercase tracking-widest bg-white/20 text-white px-2 py-0.5 rounded font-medium">
           VERIFIED
         </span>
       </div>
 
       <div>
-        <p className="text-ink/70 text-xs font-sans mb-1">{title}</p>
-        <p className="text-3xl font-medium tracking-tight text-ink">{value}</p>
+        <p className="text-white/70 text-xs font-sans mb-1">{title}</p>
+        <p className="text-3xl font-medium tracking-tight text-white">{value}</p>
       </div>
 
-      <p className="text-[11px] font-mono text-ink/70 uppercase tracking-wider">
+      <p className="text-[11px] font-mono text-white/70 uppercase tracking-wider">
         Threat Mitigation Complete
       </p>
     </div>

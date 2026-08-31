@@ -22,21 +22,6 @@ export interface HeroData {
   }>;
 }
 
-export interface ServiceItem {
-  id: string;
-  title: string;
-  description: string;
-  iconName: string;
-}
-
-export interface ServicesData {
-  eyebrow: string;
-  heading: string;
-  subhead: string;
-  ctaLabel: string;
-  items: ServiceItem[];
-}
-
 export interface PricingPlan {
   id: string;
   name: string;
@@ -75,25 +60,23 @@ export interface ExpertiseItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "HOME", href: "#hero" },
-  { label: "ABOUT US", href: "#about" },
-  { label: "SERVICES", href: "#services" },
-  { label: "EXPERTISE", href: "#expertise" },
-  { label: "PRICING", href: "#pricing" },
-  { label: "TESTIMONIALS", href: "#testimonials" },
-  { label: "BLOG", href: "#blog" },
+  { label: "HOME", href: "/#hero" },
+  { label: "ABOUT US", href: "/#about" },
+  { label: "SERVICES", href: "/#services" },
+  { label: "WHY CHOOSE US", href: "/#why-choose-us" },
+  { label: "CONTACT US", href: "/contact" },
 ];
 
 export const HERO_DATA: HeroData = {
-  ratingText: "Rated 4.9/5 by 120+ Growth Teams",
-  ratingScore: "4.9",
+  ratingText: "Trusted by 50+ early-stage SaaS founders",
+  ratingScore: "4.9/5",
   ratingStars: 5,
-  titleLine1: "AI-POWERED BUSINESS INTELLIGENCE",
-  titleLine2: "Built for Enterprise Transformation",
+  titleLine1: "From “we built it”",
+  titleLine2: "to people are buying it.",
   subhead:
-    "Empowering visionary leadership teams with real-time strategic foresight, automated decision matrix engines, and bespoke predictive analytics.",
-  ctaPrimary: { label: "GET STARTED", href: "#pricing" },
-  ctaSecondary: { label: "VIEW DEMO", href: "#expertise" },
+    "BizPsy is the GTM Studio that turns unclear positioning and ad-hoc marketing into a predictable customer acquisition system for early-stage B2B SaaS.",
+  ctaPrimary: { label: "Get the GTM Audit", href: "#services" },
+  ctaSecondary: { label: "See Our Process", href: "#about" },
   uiCards: [
     {
       id: "card-1",
@@ -140,22 +123,22 @@ export const LOGO_STRIP: Array<{ name: string; id: string }> = [
 ];
 
 export const ABOUT_DATA = {
-  eyebrow: "ABOUT US",
-  titleLine1: "A global consulting partner",
-  titleLine2: "dedicated to building",
-  titleLine3: "smarter and",
-  titleLine4: "more adaptive",
+  eyebrow: "About Us",
+  titleLine1: "Great products fail not because",
+  titleLine2: "they’re poorly built, but because the",
+  titleLine3: "market doesn’t understand them.",
+  titleLine4: "We fix the understanding.",
   card1: {
-    logo: "IPSUM",
-    stat: "120+",
-    description: "Collaborating with leading AI and cloud technology providers.",
+    logo: "GTM AUDIT",
+    stat: "50+",
+    description: "Early-stage founders taken through the GTM Growth Audit",
     image: "/images/about-portrait.jpg",
   },
   card2: {
-    label: "Commitment to measurable",
+    label: "Commitment to diagnosis",
     stat: "100%",
     quote:
-      '"Their automation strategy completely reshaped how we work. It\'s efficient, intelligent, and seamless."',
+      '"BizPsy\'s audit told us exactly why our launch flopped — and what to fix first."',
     avatars: [
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80",
@@ -164,23 +147,23 @@ export const ABOUT_DATA = {
     ],
   },
   card3: {
-    label: "Data Points",
-    stat: "520k+",
-    subtext: "Analyzed monthly to power smarter business strategies.",
+    label: "Buyer & ICP Data",
+    stat: "90+",
+    subtext: "Buyer and ICP data points mapped per audit.",
   },
   card4: {
-    label: "Continents",
-    stat: "20+",
+    label: "Markets Served",
+    stat: "5",
   },
 };
 
 export const HIGHLIGHT_BANNER_DATA = {
-  trustedText: "Trusted over 5,000+",
-  heading: "We combine human insight with artificial intelligence",
+  trustedText: "Trusted by 50+ founders",
+  heading: "We combine customer psychology with a repeatable GTM system",
   subhead:
-    "Our consulting team bridges strategic thinking and advanced AI technologies to help companies streamline processes, improve decision-making, and create intelligent digital experiences.",
-  ctaLabel: "GET STARTED",
-  ctaHref: "#pricing",
+    "Our team bridges business psychology and AI-powered growth automation to help B2B SaaS founders go from an unclear market to a predictable acquisition system.",
+  ctaLabel: "Get Started",
+  ctaHref: "#services",
   backgroundImage: "/images/banner-landscape.jpg",
   avatars: [
     "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
@@ -189,33 +172,51 @@ export const HIGHLIGHT_BANNER_DATA = {
   ],
 };
 
+export interface ServiceItem {
+  id: string;
+  layer?: string;
+  title: string;
+  description: string;
+  iconName?: string;
+  tags?: string[];
+  image?: string;
+}
+
+export interface ServicesData {
+  eyebrow: string;
+  heading: string;
+  subhead: string;
+  ctaLabel: string;
+  items: ServiceItem[];
+}
+
 export const SERVICES_DATA: ServicesData = {
-  eyebrow: "OUR SERVICES",
-  heading: "Architecting tomorrow's intelligent enterprise today",
+  eyebrow: "Services",
+  heading: "GTM strategy and growth systems, not just deliverables",
   subhead:
-    "Comprehensive AI strategy, strategic business advisory, and enterprise data synthesis tailored to your domain.",
-  ctaLabel: "EXPLORE ALL SERVICES",
+    "Whether you're diagnosing why growth stalled or building the system to scale it, we start from customer psychology — not channel volume.",
+  ctaLabel: "Get Started",
   items: [
     {
       id: "service-1",
-      title: "AI Strategy & Roadmap",
-      description:
-        "Custom roadmap alignment, LLM orchestration, and ethical governance frameworks built for sustainable enterprise scale.",
-      iconName: "Cpu",
+      layer: "STAGE 1 — THE CORE",
+      title: "GTM audit",
+      description: "Paid entry point — delivers the GTM strategy and buyer research.",
+      tags: ["ICP", "POSITIONING", "PERSONAS", "PRICING", "BUYER RESEARCH"],
     },
     {
       id: "service-2",
-      title: "Business Consulting",
-      description:
-        "Operational restructuring, friction reduction, and strategic growth modeling engineered for aggressive market capture.",
-      iconName: "TrendingUp",
+      layer: "STAGE 2 — THE AMPLIFIER",
+      title: "Execution",
+      description: "Puts the strategy into motion across multi-channel campaigns.",
+      tags: ["LEAD GENERATION", "SOCIAL MEDIA", "SEO/AEO", "GTM CALENDAR"],
     },
     {
       id: "service-3",
-      title: "Data & Insights Matrix",
-      description:
-        "Real-time telemetry pipelines, automated anomaly detection, and predictive executive dashboards with instant alert signals.",
-      iconName: "BarChart3",
+      layer: "STAGE 3 — THE ACTIVATOR",
+      title: "GTM automation",
+      description: "Systemizes and scales what works with automated pipelines.",
+      tags: ["WORKFLOW AUTOMATION", "LEAD-GEN TOOLING", "PIPELINE ACCELERATION"],
     },
   ],
 };

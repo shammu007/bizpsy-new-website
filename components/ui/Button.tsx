@@ -7,7 +7,7 @@ import { twMerge } from "tailwind-merge";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "dark" | "translucent" | "text" | "outline";
+  variant?: "primary" | "purple" | "dark" | "translucent" | "text" | "outline";
   size?: "sm" | "md" | "lg";
   showArrow?: boolean;
   href?: string;
@@ -34,13 +34,15 @@ export function Button({
 
   const variantStyles = {
     primary:
-      "bg-accent text-ink font-medium hover:bg-[#c9f55c] hover:scale-[1.02] shadow-card hover:shadow-float",
+      "bg-[#6D28D9] text-white font-medium hover:bg-[#5B21B6] hover:scale-[1.02] shadow-card hover:shadow-float",
+    purple:
+      "bg-[#6D28D9] text-white font-medium hover:bg-[#5B21B6] hover:scale-[1.02] shadow-card hover:shadow-float",
     dark: "bg-ink text-white font-medium hover:bg-[#252525] hover:scale-[1.02] shadow-card",
     translucent:
       "bg-white/20 backdrop-blur-md text-white border border-white/30 hover:bg-white/30 hover:scale-[1.02]",
     outline:
       "bg-transparent text-ink border border-ink/20 hover:border-ink hover:bg-surface hover:scale-[1.02]",
-    text: "bg-transparent text-ink hover:text-accent p-0 underline-offset-4 hover:underline",
+    text: "bg-transparent text-[#6D28D9] hover:text-[#5B21B6] p-0 underline-offset-4 hover:underline",
   };
 
   const combinedClasses = twMerge(

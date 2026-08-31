@@ -3,38 +3,73 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Clock, Lightbulb, BarChart2 } from "lucide-react";
+import { PieChart, Lightbulb, Compass, BarChart2 } from "lucide-react";
 import { ABOUT_DATA } from "@/lib/data";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { RevealHeading, RevealToken } from "@/components/ui/RevealHeading";
+import { CountUp } from "@/components/ui/CountUp";
 
 const aboutHeadingTokens: RevealToken[] = [
-  "A",
-  "global",
-  "consulting",
-  "partner",
-  "dedicated",
-  "to",
-  "building",
+  "Great",
+  "products",
+  "fail",
+  "not",
+  "because",
+  "they’re",
   {
-    text: "smarter",
+    text: "poorly",
     prefixElement: (
-      <span className="h-7 w-7 sm:h-9 sm:w-9 rounded-full bg-[#208DF9] text-white flex items-center justify-center shadow-sm -translate-y-0.5 mr-1">
-        <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[2.5]" />
+      <span className="h-7 w-7 sm:h-9 sm:w-9 rounded-full bg-[#7C3AED] text-white flex items-center justify-center shadow-sm -translate-y-0.5 mr-1">
+        <PieChart className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[2.5]" />
       </span>
     ),
   },
-  "and",
+  "built,",
+  "but",
+  "because",
+  "the",
   {
-    text: "more",
+    text: "market",
     prefixElement: (
-      <span className="h-7 w-7 sm:h-9 sm:w-9 rounded-full bg-[#D6FD70] text-ink flex items-center justify-center shadow-sm -translate-y-0.5 mr-1">
-        <Lightbulb className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-ink stroke-ink" />
+      <span className="h-7 w-7 sm:h-9 sm:w-9 rounded-full bg-[#6D28D9] text-white flex items-center justify-center shadow-sm -translate-y-0.5 mr-1">
+        <Compass className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[2.5]" />
       </span>
     ),
   },
-  "adaptive",
+  "doesn’t",
+  "understand",
+  "them.",
+  "We",
+  "fix",
+  "the",
+  {
+    text: "understanding.",
+    prefixElement: (
+      <span className="h-7 w-7 sm:h-9 sm:w-9 rounded-full bg-[#8B5CF6] text-white flex items-center justify-center shadow-sm -translate-y-0.5 mr-1">
+        <Lightbulb className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-white stroke-white" />
+      </span>
+    ),
+  },
 ];
+
+function StatCounter({ statStr, duration = 0.9 }: { statStr: string; duration?: number }) {
+  const match = statStr.match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/);
+  if (!match) return <span>{statStr}</span>;
+  const prefix = match[1] || "";
+  const target = parseFloat(match[2]);
+  const suffix = match[3] || "";
+  const decimals = match[2].includes(".") ? match[2].split(".")[1].length : 0;
+
+  return (
+    <CountUp
+      target={target}
+      prefix={prefix}
+      suffix={suffix}
+      decimals={decimals}
+      duration={duration}
+    />
+  );
+}
 
 export function About() {
   return (
@@ -96,8 +131,8 @@ export function About() {
 
           {/* Bottom Floating White Overlay Card */}
           <div className="relative z-10 bg-white rounded-card p-5 sm:p-6 shadow-float border border-ink/5 mt-auto">
-            <p className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[ -0.04em] text-ink mb-1.5">
-              {ABOUT_DATA.card1.stat}
+            <p className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.04em] text-ink mb-1.5">
+              <StatCounter statStr={ABOUT_DATA.card1.stat} duration={0.9} />
             </p>
             <p className="text-muted text-sm sm:text-base font-normal leading-relaxed">
               {ABOUT_DATA.card1.description}
@@ -119,7 +154,7 @@ export function About() {
               {ABOUT_DATA.card2.label}
             </span>
             <p className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-[-0.04em] text-ink">
-              {ABOUT_DATA.card2.stat}
+              <StatCounter statStr={ABOUT_DATA.card2.stat} duration={1.0} />
             </p>
           </div>
 
@@ -151,24 +186,24 @@ export function About() {
 
         {/* Column 3: Right Stack (Card 3 Lime & Card 4 Dark) (3 Cols) */}
         <div className="md:col-span-3 flex flex-col gap-5 sm:gap-6">
-          {/* Card 3: Lime Accent Card */}
+          {/* Card 3: Purple Accent Card */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex-1 rounded-panel bg-[#D6FD70] text-ink p-6 sm:p-7 flex flex-col justify-between min-h-[250px] sm:min-h-[270px] border border-ink/10 shadow-card"
+            className="flex-1 rounded-panel bg-[#6D28D9] text-white p-6 sm:p-7 flex flex-col justify-between min-h-[250px] sm:min-h-[270px] border border-purple-500/20 shadow-card"
           >
             <div>
-              <span className="font-mono text-xs text-ink/70 uppercase tracking-widest block mb-1">
+              <span className="font-mono text-xs text-white/70 uppercase tracking-widest block mb-1">
                 {ABOUT_DATA.card3.label}
               </span>
-              <p className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-[-0.04em] text-ink">
-                {ABOUT_DATA.card3.stat}
+              <p className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-[-0.04em] text-white">
+                <StatCounter statStr={ABOUT_DATA.card3.stat} duration={0.9} />
               </p>
             </div>
 
-            <p className="text-ink/80 text-sm sm:text-base font-normal leading-relaxed mt-3">
+            <p className="text-white/85 text-sm sm:text-base font-normal leading-relaxed mt-3">
               {ABOUT_DATA.card3.subtext}
             </p>
           </motion.div>
@@ -185,7 +220,7 @@ export function About() {
               {ABOUT_DATA.card4.label}
             </span>
             <span className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.04em] text-white">
-              {ABOUT_DATA.card4.stat}
+              <StatCounter statStr={ABOUT_DATA.card4.stat} duration={0.7} />
             </span>
           </motion.div>
         </div>

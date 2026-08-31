@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 
 export interface EyebrowProps {
   children: React.ReactNode;
-  theme?: "dark" | "light" | "lime";
+  theme?: "dark" | "light" | "purple" | "lime";
   className?: string;
 }
 
@@ -16,13 +16,15 @@ export function Eyebrow({
   const themeStyles = {
     dark: "text-ink bg-surface border-card-border",
     light: "text-white bg-white/10 border-white/20",
-    lime: "text-ink bg-accent border-accent",
+    purple: "text-[#6D28D9] bg-[#F5F3FF] border-[#DDD6FE]",
+    lime: "text-[#6D28D9] bg-[#F5F3FF] border-[#DDD6FE]",
   };
 
   const dotStyles = {
     dark: "bg-ink",
-    light: "bg-accent",
-    lime: "bg-ink",
+    light: "bg-[#A78BFA]",
+    purple: "bg-[#6D28D9]",
+    lime: "bg-[#6D28D9]",
   };
 
   return (

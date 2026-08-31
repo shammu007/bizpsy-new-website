@@ -1,36 +1,25 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
+import React, { useState } from "react";
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { Menu, X, ArrowRight, Phone, Mail } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
-    if (latest > 100 && latest > previous) {
+    // Don't hide navbar if mobile menu is open
+    if (!mobileMenuOpen && latest > 100 && latest > previous) {
       setHidden(true);
     } else {
       setHidden(false);
     }
   });
-
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
 
   return (
     <>
@@ -43,21 +32,23 @@ export function Navbar() {
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none"
       >
-        <div className="pointer-events-auto flex items-center justify-between w-full max-w-[1120px] h-14 px-4 rounded-pill frosted-glass border border-ink/10 shadow-card">
+        <div className="pointer-events-auto flex items-center justify-between w-full max-w-[1120px] h-16 px-4 sm:px-6 rounded-pill frosted-glass border border-ink/10 shadow-card">
           {/* Logo */}
           <a
-            href="#hero"
-            className="flex items-center gap-2 text-ink font-sans font-medium text-[18px] tracking-[-0.04em] group"
+            href="/#hero"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center gap-2 group shrink-0"
           >
-            <div className="h-8 w-8 rounded-full bg-ink text-accent flex items-center justify-center transition-transform group-hover:scale-105">
-              <Sparkles className="h-4 w-4 fill-accent stroke-accent" />
-            </div>
-            <span>BizPsy</span>
+            <img
+              src="/images/bizpsy-logo-dark.png"
+              alt="BizPsy Logo"
+              className="h-9 sm:h-11 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </a>
 
-          {/* Desktop Nav Items (Driven by data.ts) */}
-          <nav className="hidden md:flex items-center gap-6">
-            {NAV_ITEMS.slice(0, 5).map((item) => (
+          {/* Desktop Nav Items */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+            {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
@@ -68,93 +59,92 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Right Action Buttons */}
-          <div className="flex items-center gap-2">
-            <Button
-              href="#contact"
-              variant="primary"
-              size="sm"
-              showArrow
-              className="hidden sm:inline-flex"
-            >
-              CONTACT US
-            </Button>
+          {/* Right Action Button & Mobile Hamburger Toggle */}
+          <div className="flex items-center gap-2.5">
+            {/* Desktop CTA Button */}
+            <div className="hidden sm:flex items-center">
+              <Button
+                href="/contact"
+                variant="purple"
+                size="sm"
+                showArrow
+              >
+                GET STARTED
+              </Button>
+            </div>
 
-            {/* Hamburger Trigger (Always active at all widths per spec §6) */}
+            {/* Mobile Hamburger Toggle Button */}
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-              className="h-9 w-9 rounded-full bg-ink text-white flex items-center justify-center hover:bg-ink/80 transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              className="md:hidden w-10 h-10 rounded-full bg-black/5 hover:bg-black/10 active:bg-black/15 flex items-center justify-center text-gray-900 transition-colors pointer-events-auto"
             >
-              {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5 stroke-[2.4]" />
+              ) : (
+                <Menu className="w-5 h-5 stroke-[2.4]" />
+              )}
             </button>
           </div>
         </div>
       </motion.header>
 
-      {/* Full-Screen Drawer Menu */}
+      {/* Mobile Navigation Drawer / Dropdown Overlay */}
       <AnimatePresence>
-        {isOpen && (
+        {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-ink/95 backdrop-blur-xl flex flex-col justify-between p-8 sm:p-12 text-white"
+            initial={{ opacity: 0, y: -20, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.96 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed top-22 inset-x-4 z-40 md:hidden max-w-[500px] mx-auto bg-white/95 backdrop-blur-2xl rounded-[28px] p-6 border border-purple-100 shadow-[0_16px_50px_rgba(0,0,0,0.15)] overflow-hidden"
           >
-            <div className="flex justify-between items-center max-w-[1120px] mx-auto w-full pt-4">
-              <a
-                href="#hero"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2 text-white font-sans font-medium text-[20px]"
-              >
-                <div className="h-9 w-9 rounded-full bg-accent text-ink flex items-center justify-center">
-                  <Sparkles className="h-5 w-5 fill-ink stroke-ink" />
-                </div>
-                <span>BizPsy</span>
-              </a>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="h-10 w-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            {/* Drawer Links */}
-            <div className="max-w-[1120px] mx-auto w-full my-auto flex flex-col gap-4 sm:gap-6">
+            {/* Mobile Nav Links List */}
+            <nav className="flex flex-col space-y-1 mb-6">
               {NAV_ITEMS.map((item, idx) => (
                 <motion.a
                   key={item.href}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.05 * idx, duration: 0.3 }}
-                  className="group flex items-center justify-between text-[28px] sm:text-[42px] font-medium tracking-[-0.04em] text-white/80 hover:text-accent transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                  className="flex items-center justify-between px-4 py-3.5 rounded-2xl text-[14px] font-mono font-bold uppercase tracking-[0.08em] text-gray-800 hover:text-[#6D28D9] hover:bg-[#F5F3FF] transition-all group"
                 >
                   <span>{item.label}</span>
-                  <span className="font-mono text-sm tracking-widest text-white/40 group-hover:text-accent">
-                    0{idx + 1}
-                  </span>
+                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#6D28D9] group-hover:translate-x-1 transition-all" />
                 </motion.a>
               ))}
+            </nav>
+
+            {/* Mobile CTA Button */}
+            <div className="pt-2 pb-4 border-t border-gray-100">
+              <a
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3.5 px-6 rounded-2xl bg-[#6D28D9] text-white text-[13px] font-mono font-bold uppercase tracking-[0.08em] hover:bg-[#5B21B6] transition-all shadow-md flex items-center justify-center gap-2 group"
+              >
+                <span>GET STARTED</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
             </div>
 
-            {/* Drawer Footer */}
-            <div className="max-w-[1120px] mx-auto w-full border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-              <p className="font-mono text-xs text-white/50 uppercase tracking-widest">
-                AI STRATEGY & CONSULTING MATRIX
-              </p>
-              <Button
-                href="#contact"
-                variant="primary"
-                size="md"
-                showArrow
-                onClick={() => setIsOpen(false)}
+            {/* Quick Contact Footer in Mobile Drawer */}
+            <div className="pt-3 border-t border-gray-100 flex flex-col gap-2 text-xs font-sans text-gray-500">
+              <a
+                href="tel:+919080390824"
+                className="flex items-center gap-2 hover:text-[#6D28D9] transition-colors"
               >
-                GET STARTED NOW
-              </Button>
+                <Phone className="w-3.5 h-3.5 text-[#6D28D9]" />
+                <span>+91 9080390824</span>
+              </a>
+              <a
+                href="mailto:info@bizpsy.in"
+                className="flex items-center gap-2 hover:text-[#6D28D9] transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5 text-[#6D28D9]" />
+                <span>info@bizpsy.in</span>
+              </a>
             </div>
           </motion.div>
         )}

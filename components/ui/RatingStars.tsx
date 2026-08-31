@@ -18,7 +18,7 @@ export function RatingStars({
   return (
     <div
       className={clsx(
-        "inline-flex items-center gap-3 rounded-full bg-white/20 backdrop-blur-md px-4 py-2 text-white/90 border border-white/25 shadow-card select-none text-[13px]",
+        "inline-flex items-center gap-3 rounded-full bg-black/10 backdrop-blur-md px-4 py-2 text-black border border-black/15 shadow-card select-none text-[13px]",
         className
       )}
     >
@@ -30,7 +30,7 @@ export function RatingStars({
           />
         ))}
       </div>
-      <span className="font-sans font-medium text-white">{text}</span>
+      <span className="font-sans font-medium text-black">{text}</span>
     </div>
   );
 }

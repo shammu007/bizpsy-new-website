@@ -4,17 +4,47 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowUpRight } from "lucide-react";
 import { FOOTER_DATA } from "@/lib/data";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 export function Footer() {
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
+    if (!email.trim()) return;
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        setEmail("");
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        // Fallback
+        const mailtoUrl = `mailto:info@bizpsy.in,mshammu.007@gmail.com?subject=Newsletter Subscription&body=Please add ${encodeURIComponent(
+          email
+        )} to the BizPsy newsletter.`;
+        window.open(mailtoUrl, "_blank");
+        setSubmitted(true);
+        setEmail("");
+      }
+    } catch {
+      const mailtoUrl = `mailto:info@bizpsy.in,mshammu.007@gmail.com?subject=Newsletter Subscription&body=Please add ${encodeURIComponent(
+        email
+      )} to the BizPsy newsletter.`;
+      window.open(mailtoUrl, "_blank");
       setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 4000);
       setEmail("");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -32,13 +62,14 @@ export function Footer() {
           {/* Brand Logo & Tagline */}
           <div className="max-w-[420px]">
             <a
-              href="#hero"
-              className="flex items-center gap-2.5 text-white font-sans font-medium text-2xl tracking-tight group"
+              href="/#hero"
+              className="inline-flex items-center group shrink-0"
             >
-              <div className="h-9 w-9 rounded-full bg-white text-ink flex items-center justify-center transition-transform group-hover:scale-105">
-                <Sparkles className="h-5 w-5 fill-ink stroke-ink" />
-              </div>
-              <span>{FOOTER_DATA.logoText}</span>
+              <img
+                src="/images/bizpsy-logo-white.png"
+                alt="BizPsy Logo"
+                className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform group-hover:scale-105"
+              />
             </a>
             <p className="text-white/70 text-sm sm:text-base font-sans font-normal leading-relaxed mt-4">
               {FOOTER_DATA.tagline}
@@ -93,10 +124,10 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="bg-[#D6FD70] hover:bg-[#cbfb55] text-ink font-mono text-xs font-semibold uppercase tracking-wider px-4 py-2 sm:px-5 sm:py-2.5 rounded-full flex items-center gap-2 transition-all shrink-0 active:scale-95"
+                className="bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-mono text-xs font-semibold uppercase tracking-wider px-4 py-2 sm:px-5 sm:py-2.5 rounded-full flex items-center gap-2 transition-all shrink-0 active:scale-95 shadow-md"
               >
                 <span>{submitted ? "THANK YOU" : FOOTER_DATA.submitLabel}</span>
-                <span className="h-6 w-6 rounded-full bg-ink text-white flex items-center justify-center shrink-0">
+                <span className="h-6 w-6 rounded-full bg-white text-[#6D28D9] flex items-center justify-center shrink-0">
                   <ArrowUpRight className="h-3.5 w-3.5 stroke-[2.5]" />
                 </span>
               </button>

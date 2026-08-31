@@ -52,7 +52,7 @@ export function CircularGallery({
     container.appendChild(gl.canvas);
 
     const camera = new Camera(gl, { fov: 45 });
-    camera.position.set(0, 0, 8.5);
+    camera.position.set(0, 0, 7.2);
 
     const scene = new Transform();
 

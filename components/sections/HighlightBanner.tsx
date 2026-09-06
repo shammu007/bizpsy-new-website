@@ -20,7 +20,7 @@ export function HighlightBanner() {
         <div className="absolute inset-0 z-0">
           <Image
             src={HIGHLIGHT_BANNER_DATA.backgroundImage}
-            alt="Human insight and AI landscape"
+            alt="Startup founders and executives building scalable go-to-market distribution engines"
             fill
             className="object-cover object-center transition-transform duration-1000 group-hover:scale-105"
           />
@@ -39,11 +39,11 @@ export function HighlightBanner() {
               {HIGHLIGHT_BANNER_DATA.avatars.map((url, idx) => (
                 <div
                   key={`avatar-banner-${idx}`}
-                  className="relative h-7 w-7 sm:h-8 sm:w-8 rounded-full overflow-hidden border border-white/40 shadow-sm shrink-0"
+                  className="relative h-7 w-7 sm:h-8 sm:h-8 rounded-full overflow-hidden border border-white/40 shadow-sm shrink-0"
                 >
                   <Image
                     src={url}
-                    alt={`User ${idx + 1}`}
+                    alt={`SaaS founder avatar ${idx + 1}`}
                     fill
                     className="object-cover"
                   />

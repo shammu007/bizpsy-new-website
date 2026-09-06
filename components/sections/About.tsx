@@ -111,7 +111,7 @@ export function About() {
           <div className="absolute inset-0 z-0">
             <Image
               src={ABOUT_DATA.card1.image}
-              alt="Consultant portrait"
+              alt="GTM Growth Audit strategic consultation for early-stage SaaS founders"
               fill
               className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
             />
@@ -169,7 +169,7 @@ export function About() {
                 >
                   <Image
                     src={url}
-                    alt={`Team member ${idx + 1}`}
+                    alt={`SaaS founder and executive client ${idx + 1}`}
                     fill
                     className="object-cover"
                   />

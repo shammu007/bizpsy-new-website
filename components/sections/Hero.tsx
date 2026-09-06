@@ -168,7 +168,7 @@ export function Hero() {
                   <img
                     key={i}
                     src={url}
-                    alt="Founder avatar"
+                    alt={`Early-stage SaaS founder ${i + 1}`}
                     className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover shadow-xs"
                   />
                 ))}
@@ -200,7 +200,7 @@ export function Hero() {
               <div className="absolute right-0 bottom-0 top-0 w-[72%] pointer-events-none z-0">
                 <Image
                   src="/images/hero-portrait.jpg"
-                  alt="Founder with SaaS strategy"
+                  alt="B2B SaaS founder accelerating customer acquisition and go-to-market strategy"
                   fill
                   className="object-cover object-[center_top] mix-blend-multiply opacity-95"
                   priority
@@ -348,7 +348,7 @@ export function Hero() {
                 {/* Full Unobstructed Portrait Photo */}
                 <Image
                   src="/images/hero-portrait.jpg"
-                  alt="Founder with SaaS strategy"
+                  alt="B2B SaaS founder accelerating customer acquisition and go-to-market strategy"
                   fill
                   className="object-cover object-[center_top] mix-blend-multiply opacity-95"
                   priority

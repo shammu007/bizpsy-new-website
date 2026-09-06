@@ -47,7 +47,7 @@ export function VisionMission() {
             <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden min-h-[380px] sm:min-h-[460px] lg:min-h-[500px] border border-gray-100 shadow-md">
               <Image
                 src="/images/vision-mission.jpg"
-                alt="Bizpsy team working on go-to-market strategy"
+                alt="BizPsy GTM team collaborating on startup go-to-market strategy, positioning, and customer acquisition"
                 fill
                 className="object-cover object-center"
                 priority

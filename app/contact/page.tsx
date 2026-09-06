@@ -148,9 +148,9 @@ export default function ContactPage() {
                     <Calendar className="w-5 h-5 stroke-[2.2]" />
                   </div>
                   <div>
-                    <h3 className="text-[17px] font-bold text-gray-950 font-sans">
+                    <h2 className="text-[17px] font-bold text-gray-950 font-sans">
                       Book a Strategy Call
-                    </h3>
+                    </h2>
                     <p className="text-[12px] text-[#6D28D9] font-medium font-sans">
                       30-Min Discovery & GTM Diagnostic
                     </p>
@@ -243,17 +243,17 @@ export default function ContactPage() {
                 <div className="flex -space-x-2 shrink-0">
                   <img
                     src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-                    alt="Founder avatar"
+                    alt="B2B SaaS founder client 1"
                     className="w-8 h-8 rounded-full border-2 border-white object-cover"
                   />
                   <img
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
-                    alt="Founder avatar"
+                    alt="B2B SaaS founder client 2"
                     className="w-8 h-8 rounded-full border-2 border-white object-cover"
                   />
                   <img
                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80"
-                    alt="Founder avatar"
+                    alt="B2B SaaS founder client 3"
                     className="w-8 h-8 rounded-full border-2 border-white object-cover"
                   />
                 </div>
@@ -313,9 +313,9 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <h3 className="text-[22px] font-bold text-gray-950 mb-1 font-sans">
+                    <h2 className="text-[22px] font-bold text-gray-950 mb-1 font-sans">
                       Send an Inquiry
-                    </h3>
+                    </h2>
                     <p className="text-gray-500 text-xs sm:text-sm font-sans">
                       Fill out the details below and our team will get in touch directly.
                     </p>

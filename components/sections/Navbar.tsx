@@ -37,11 +37,12 @@ export function Navbar() {
           <a
             href="/#hero"
             onClick={() => setMobileMenuOpen(false)}
+            aria-label="BizPsy GTM Studio Home"
             className="flex items-center gap-2 group shrink-0"
           >
             <img
               src="/images/bizpsy-logo-dark.png"
-              alt="BizPsy Logo"
+              alt="BizPsy GTM Studio Logo"
               className="h-9 sm:h-11 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </a>

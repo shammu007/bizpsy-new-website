@@ -63,11 +63,12 @@ export function Footer() {
           <div className="max-w-[420px]">
             <a
               href="/#hero"
+              aria-label="BizPsy GTM Studio Home"
               className="inline-flex items-center group shrink-0"
             >
               <img
                 src="/images/bizpsy-logo-white.png"
-                alt="BizPsy Logo"
+                alt="BizPsy GTM Studio Logo"
                 className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform group-hover:scale-105"
               />
             </a>

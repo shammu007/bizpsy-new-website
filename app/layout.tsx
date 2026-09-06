@@ -2,6 +2,14 @@ import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? process.env.NEXT_PUBLIC_SITE_URL
+  : process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "https://bizpsy-new-website.vercel.app";
+
 export const viewport: Viewport = {
   themeColor: "#6D28D9",
   width: "device-width",
@@ -9,7 +17,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bizpsy.in"),
+  metadataBase: new URL(baseUrl),
   title: {
     default: "BizPsy The GTM Studio",
     template: "%s | BizPsy The GTM Studio",
@@ -47,7 +55,7 @@ export const metadata: Metadata = {
     title: "BizPsy The GTM Studio",
     description:
       "BizPsy is the GTM Studio that turns unclear positioning and ad-hoc marketing into a predictable customer acquisition system for early-stage B2B SaaS.",
-    url: "https://bizpsy.in",
+    url: baseUrl,
     siteName: "BizPsy The GTM Studio",
     images: [
       {
@@ -55,6 +63,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "BizPsy The GTM Studio — Go-To-Market Systems for Early-Stage B2B SaaS",
+        type: "image/png",
       },
     ],
     locale: "en_US",
@@ -84,6 +93,12 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="192x192" href="/images/bizpsy-icon-192.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/bizpsy-icon-180.png" />
         <link rel="shortcut icon" href="/images/bizpsy-icon-32.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image:type" content="image/png" />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="630" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

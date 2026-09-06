@@ -2,13 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
-  ? process.env.NEXT_PUBLIC_SITE_URL
-  : process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "https://bizpsy-new-website.vercel.app";
+const siteUrl = "https://bizpsy-new-website.vercel.app";
+const ogImageUrl = `${siteUrl}/images/og-preview.jpg`;
+const ogPngUrl = `${siteUrl}/images/og-preview.png`;
 
 export const viewport: Viewport = {
   themeColor: "#6D28D9",
@@ -17,7 +13,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "BizPsy The GTM Studio",
     template: "%s | BizPsy The GTM Studio",
@@ -55,11 +51,20 @@ export const metadata: Metadata = {
     title: "BizPsy The GTM Studio",
     description:
       "BizPsy is the GTM Studio that turns unclear positioning and ad-hoc marketing into a predictable customer acquisition system for early-stage B2B SaaS.",
-    url: baseUrl,
+    url: siteUrl,
     siteName: "BizPsy The GTM Studio",
     images: [
       {
-        url: "/images/og-preview.png",
+        url: ogImageUrl,
+        secureUrl: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: "BizPsy The GTM Studio — Go-To-Market Systems for Early-Stage B2B SaaS",
+        type: "image/jpeg",
+      },
+      {
+        url: ogPngUrl,
+        secureUrl: ogPngUrl,
         width: 1200,
         height: 630,
         alt: "BizPsy The GTM Studio — Go-To-Market Systems for Early-Stage B2B SaaS",
@@ -74,7 +79,7 @@ export const metadata: Metadata = {
     title: "BizPsy The GTM Studio",
     description:
       "BizPsy is the GTM Studio that turns unclear positioning and ad-hoc marketing into a predictable customer acquisition system for early-stage B2B SaaS.",
-    images: ["/images/og-preview.png"],
+    images: [ogImageUrl],
     creator: "@bizpsy",
   },
 };
@@ -93,12 +98,25 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="192x192" href="/images/bizpsy-icon-192.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/bizpsy-icon-180.png" />
         <link rel="shortcut icon" href="/images/bizpsy-icon-32.png" />
-        <meta property="og:image:type" content="image/png" />
+
+        {/* Explicit OpenGraph & Meta Tags for Threads, WhatsApp, Facebook, LinkedIn */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="BizPsy The GTM Studio" />
+        <meta property="og:title" content="BizPsy The GTM Studio" />
+        <meta property="og:description" content="BizPsy is the GTM Studio that turns unclear positioning and ad-hoc marketing into a predictable customer acquisition system for early-stage B2B SaaS." />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:secure_url" content={ogImageUrl} />
+        <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image:type" content="image/png" />
-        <meta name="twitter:image:width" content="1200" />
-        <meta name="twitter:image:height" content="630" />
+        <meta property="og:image:alt" content="BizPsy The GTM Studio" />
+
+        {/* Twitter / Threads Card Meta */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="BizPsy The GTM Studio" />
+        <meta name="twitter:description" content="BizPsy is the GTM Studio that turns unclear positioning and ad-hoc marketing into a predictable customer acquisition system for early-stage B2B SaaS." />
+        <meta name="twitter:image" content={ogImageUrl} />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

@@ -59,6 +59,15 @@ body {
   );
 }
 
+/* Hide dev overlay elements in captures */
+nextjs-portal,
+[data-nextjs-toast],
+[data-nextjs-dev-overlay],
+[data-nextjs-dialog-overlay],
+#__next-build-watcher {
+  display: none !important;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

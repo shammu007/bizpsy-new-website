@@ -264,7 +264,7 @@ export default function ContactPage() {
                     ))}
                   </div>
                   <div className="text-[11px] text-gray-600 font-sans">
-                    Trusted by 150+ B2B SaaS founders and executives.
+                    Trusted by 50+ B2B SaaS founders and executives.
                   </div>
                 </div>
               </div>

@@ -433,13 +433,12 @@ export const FOOTER_DATA = {
   submitLabel: "SUBMIT",
   copyright: "© 2026 BizPsy Inc. All rights reserved.",
   col1Links: [
-    { label: "Home", href: "#hero" },
-    { label: "About us", href: "#about" },
-    { label: "Services", href: "#services" },
+    { label: "Home", href: "/#hero" },
+    { label: "About us", href: "/#about" },
+    { label: "Services", href: "/#services" },
   ],
   col2Links: [
-    { label: "Pricing", href: "#pricing" },
-    { label: "Blog", href: "#blog" },
-    { label: "Contact", href: "#contact" },
+    { label: "Why Choose Us", href: "/#why-choose-us" },
+    { label: "Contact Us", href: "/contact" },
   ],
 };

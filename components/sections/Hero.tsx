@@ -180,7 +180,7 @@ export function Hero() {
                   ))}
                 </div>
                 <p className="text-[11px] sm:text-[12px] text-gray-500 leading-tight font-sans">
-                  Trusted by founders and GTM teams at 150+ early-stage SaaS companies.
+                  Trusted by founders and GTM teams at 50+ early-stage SaaS companies.
                 </p>
               </div>
             </motion.div>

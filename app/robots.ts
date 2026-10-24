@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://bizpsy.in/sitemap.xml",
-    host: "https://bizpsy.in",
+    sitemap: "https://www.bizpsy.in/sitemap.xml",
+    host: "https://www.bizpsy.in",
   };
 }

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
-const siteUrl = "https://bizpsy.in";
+const siteUrl = "https://www.bizpsy.in";
 const ogImageUrl = `${siteUrl}/images/og-preview.jpg`;
 const ogPngUrl = `${siteUrl}/images/og-preview.png`;
 
@@ -110,17 +110,17 @@ const jsonLdData = {
   "@graph": [
     {
       "@type": ["Organization", "ProfessionalService"],
-      "@id": "https://bizpsy.in/#organization",
+      "@id": "https://www.bizpsy.in/#organization",
       name: "BizPsy",
       alternateName: ["BizPsy GTM Studio", "BizPsy Go-To-Market Studio"],
-      url: "https://bizpsy.in",
+      url: "https://www.bizpsy.in",
       logo: {
         "@type": "ImageObject",
-        "@id": "https://bizpsy.in/#logo",
-        url: "https://bizpsy.in/images/bizpsy-logo-dark.png",
+        "@id": "https://www.bizpsy.in/#logo",
+        url: "https://www.bizpsy.in/images/bizpsy-logo-dark.png",
         caption: "BizPsy GTM Studio Logo",
       },
-      image: "https://bizpsy.in/images/og-preview.jpg",
+      image: "https://www.bizpsy.in/images/og-preview.jpg",
       description:
         "BizPsy is a GTM studio helping startups and SaaS founders build go-to-market strategies, acquire their first users, improve positioning, and create repeatable growth systems.",
       email: "info@bizpsy.in",
@@ -176,13 +176,13 @@ const jsonLdData = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://bizpsy.in/#website",
-      url: "https://bizpsy.in",
+      "@id": "https://www.bizpsy.in/#website",
+      url: "https://www.bizpsy.in",
       name: "BizPsy | GTM Studio for Startups & SaaS",
       description:
         "BizPsy is a GTM studio helping startups and SaaS founders build go-to-market strategies, acquire their first users, improve positioning, and create repeatable growth systems.",
       publisher: {
-        "@id": "https://bizpsy.in/#organization",
+        "@id": "https://www.bizpsy.in/#organization",
       },
       inLanguage: "en-US",
     },

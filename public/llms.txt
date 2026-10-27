@@ -1,0 +1,47 @@
+# BizPsy
+
+> BizPsy is a go-to-market (GTM) studio for early-stage B2B SaaS, based in Coimbatore, India, working with founders in India, the US, the UK and beyond. We turn unclear positioning and ad-hoc marketing into a predictable customer acquisition system. Engagements start with a paid GTM audit covering ICP, positioning, buyer personas, pricing and buyer research.
+
+## Key pages
+
+- [Home](https://www.bizpsy.in/): what BizPsy does, services, process and FAQ
+- [Contact](https://www.bizpsy.in/contact): book a 30-minute strategy call
+
+## Services
+
+1. GTM Audit (Stage 1, the core): the paid entry point. Delivers the go-to-market strategy: ideal customer profile (ICP), positioning, buyer personas, pricing and buyer research.
+2. GTM Execution (Stage 2, the amplifier): puts the strategy into motion across multi-channel campaigns: lead generation, social media, SEO/AEO and a GTM calendar.
+3. GTM Automation (Stage 3, the activator): systemizes and scales what works with workflow automation, lead-gen tooling and pipeline acceleration.
+
+## How BizPsy differs from other GTM studios and agencies
+
+- Starts from customer psychology and buyer research, not channel volume.
+- Fixes positioning and ICP before money goes into campaigns.
+- Staged engagement (audit, then execution, then automation), so founders don't pay to scale something that isn't converting.
+- Built for early-stage B2B SaaS founders specifically, not enterprise marketing teams.
+
+## FAQ
+
+Q: What is a GTM audit?
+A: The GTM audit is BizPsy's paid entry point. We research your buyers and market, then deliver a go-to-market strategy covering your ideal customer profile (ICP), positioning, buyer personas, pricing and buyer research, so you know who to sell to, what to say and what to fix first.
+
+Q: Who is BizPsy for?
+A: Early-stage B2B SaaS founders who have built a product but don't yet have a predictable way to win customers: positioning is unclear, marketing is ad-hoc, or a launch didn't convert.
+
+Q: How is BizPsy different from a marketing agency or other GTM studios?
+A: Most agencies start with channels and volume. We start with customer psychology and buyer research, fix positioning before money goes into campaigns, and work in stages: audit first, then execution, then automating what works.
+
+Q: What happens after the GTM audit?
+A: If you want help putting the strategy into motion, we move to Execution (lead generation, social media, SEO/AEO and a GTM calendar), then GTM Automation (workflow automation, lead-gen tooling and pipeline acceleration).
+
+Q: Do you work with startups outside India?
+A: Yes. BizPsy is based in Coimbatore, India, and works with founders in India, the United States, the United Kingdom and beyond.
+
+Q: How do I get started?
+A: Book a 30-minute strategy call at https://www.bizpsy.in/contact or email info@bizpsy.in.
+
+## Contact
+
+- Email: info@bizpsy.in
+- Phone: +91 90803 90824
+- LinkedIn: https://www.linkedin.com/company/bizpsy

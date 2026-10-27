@@ -442,3 +442,44 @@ export const FOOTER_DATA = {
     { label: "Contact Us", href: "/contact" },
   ],
 };
+
+export const SOCIAL_LINKS: Array<{ id: "linkedin" | "instagram"; label: string; href: string }> = [
+  { id: "linkedin", label: "BizPsy on LinkedIn", href: "https://www.linkedin.com/company/bizpsy" },
+];
+
+export const FAQ_DATA = {
+  eyebrow: "FAQ",
+  heading: "Questions founders ask before a GTM audit",
+  items: [
+    {
+      question: "What is a GTM audit?",
+      answer:
+        "The GTM audit is BizPsy's paid entry point. We research your buyers and market, then deliver a go-to-market strategy covering your ideal customer profile (ICP), positioning, buyer personas, pricing and buyer research, so you know who to sell to, what to say and what to fix first.",
+    },
+    {
+      question: "Who is BizPsy for?",
+      answer:
+        "Early-stage B2B SaaS founders who have built a product but don't yet have a predictable way to win customers: positioning is unclear, marketing is ad-hoc, or a launch didn't convert.",
+    },
+    {
+      question: "How is BizPsy different from a marketing agency or other GTM studios?",
+      answer:
+        "Most agencies start with channels and volume. We start with customer psychology and buyer research, fix positioning before money goes into campaigns, and work in stages: audit first, then execution, then automating what works. You don't pay to scale something that isn't converting yet.",
+    },
+    {
+      question: "What happens after the GTM audit?",
+      answer:
+        "If you want help putting the strategy into motion, we move to Execution (lead generation, social media, SEO/AEO and a GTM calendar), then GTM Automation (workflow automation, lead-gen tooling and pipeline acceleration).",
+    },
+    {
+      question: "Do you work with startups outside India?",
+      answer:
+        "Yes. BizPsy is based in Coimbatore, India, and works with founders in India, the United States, the United Kingdom and beyond.",
+    },
+    {
+      question: "How do I get started?",
+      answer:
+        "Book a 30-minute strategy call through the contact page, or email info@bizpsy.in. We'll talk through where growth is stuck and whether a GTM audit is the right first step.",
+    },
+  ],
+};

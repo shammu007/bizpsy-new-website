@@ -1,21 +1,15 @@
 import { MetadataRoute } from "next";
+import { PAGE_LAST_MODIFIED, SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.bizpsy.in";
-  const now = new Date();
-
   return [
     {
-      url: `${baseUrl}/`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1.0,
+      url: `${SITE_URL}/`,
+      lastModified: PAGE_LAST_MODIFIED.home,
     },
     {
-      url: `${baseUrl}/contact`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
+      url: `${SITE_URL}/contact`,
+      lastModified: PAGE_LAST_MODIFIED.contact,
     },
   ];
 }

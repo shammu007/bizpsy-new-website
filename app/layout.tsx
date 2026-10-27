@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+import { SOCIAL_LINKS } from "@/lib/data";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/site";
 
-const siteUrl = "https://www.bizpsy.in";
-const ogImageUrl = `${siteUrl}/images/og-preview.jpg`;
-const ogPngUrl = `${siteUrl}/images/og-preview.png`;
+const ogImageUrl = `${SITE_URL}/images/og-preview.jpg`;
+const ogPngUrl = `${SITE_URL}/images/og-preview.png`;
 
 export const viewport: Viewport = {
   themeColor: "#6D28D9",
@@ -13,13 +14,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "BizPsy | GTM Studio for Startups & SaaS",
+    default: SITE_TITLE,
     template: "%s | BizPsy GTM Studio",
   },
-  description:
-    "BizPsy is a GTM studio helping startups and SaaS founders build go-to-market strategies, acquire their first users, improve positioning, and create repeatable growth systems.",
+  description: SITE_DESCRIPTION,
   keywords: [
     "GTM Studio",
     "Go-To-Market Strategy",
@@ -35,11 +35,11 @@ export const metadata: Metadata = {
     "GTM Audit",
     "BizPsy",
   ],
-  authors: [{ name: "BizPsy GTM Studio", url: siteUrl }],
+  authors: [{ name: "BizPsy GTM Studio", url: SITE_URL }],
   creator: "BizPsy",
   publisher: "BizPsy",
   alternates: {
-    canonical: siteUrl,
+    canonical: SITE_URL,
   },
   robots: {
     index: true,
@@ -67,10 +67,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "BizPsy | GTM Studio for Startups & SaaS",
-    description:
-      "BizPsy is a GTM studio helping startups and SaaS founders build go-to-market strategies, acquire their first users, improve positioning, and create repeatable growth systems.",
-    url: siteUrl,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
     siteName: "BizPsy GTM Studio",
     images: [
       {
@@ -78,7 +77,7 @@ export const metadata: Metadata = {
         secureUrl: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: "BizPsy | GTM Studio for Startups & SaaS",
+        alt: SITE_TITLE,
         type: "image/jpeg",
       },
       {
@@ -86,7 +85,7 @@ export const metadata: Metadata = {
         secureUrl: ogPngUrl,
         width: 1200,
         height: 630,
-        alt: "BizPsy | GTM Studio for Startups & SaaS",
+        alt: SITE_TITLE,
         type: "image/png",
       },
     ],
@@ -95,9 +94,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BizPsy | GTM Studio for Startups & SaaS",
-    description:
-      "BizPsy is a GTM studio helping startups and SaaS founders build go-to-market strategies, acquire their first users, improve positioning, and create repeatable growth systems.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [ogImageUrl],
     creator: "@bizpsy",
     site: "@bizpsy",
@@ -170,15 +168,14 @@ const jsonLdData = {
         email: "info@bizpsy.in",
         availableLanguage: ["English", "Tamil"],
       },
-      sameAs: [
-        "https://www.linkedin.com/company/bizpsy",
-      ],
+      sameAs: SOCIAL_LINKS.map((link) => link.href),
     },
     {
       "@type": "WebSite",
       "@id": "https://www.bizpsy.in/#website",
       url: "https://www.bizpsy.in",
-      name: "BizPsy | GTM Studio for Startups & SaaS",
+      name: "BizPsy",
+      alternateName: "BizPsy Go-To-Market Studio",
       description:
         "BizPsy is a GTM studio helping startups and SaaS founders build go-to-market strategies, acquire their first users, improve positioning, and create repeatable growth systems.",
       publisher: {

@@ -85,22 +85,12 @@ export function Hero() {
           {/* Left Column: Text, Value Prop, CTAs, Social Proof */}
           <div className="lg:col-span-5 flex flex-col justify-center pr-0 lg:pr-4">
             
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.05 }}
-              className="text-[#6D28D9] font-mono text-[10.5px] sm:text-[12px] uppercase tracking-[0.14em] font-bold mb-3 sm:mb-5"
-            >
-              THE GTM STUDIO FOR EARLY-STAGE SAAS
-            </motion.div>
-
             {/* Main Headline - Matches About Us font-sans (Plus Jakarta Sans) with smooth slide-up animation */}
             <motion.h1
               variants={headlineParentVariants}
               initial="hidden"
               animate="visible"
-              className="text-[32px] xs:text-[38px] sm:text-[50px] lg:text-[54px] xl:text-[62px] font-sans font-medium leading-[1.08] tracking-[-0.04em] text-[#111827] mb-4 sm:mb-6"
+              className="text-[32px] xs:text-[38px] sm:text-[50px] lg:text-[54px] xl:text-[62px] font-sans font-medium leading-[1.08] tracking-[-0.04em] text-[#111827] mb-3 sm:mb-4"
             >
               {/* Line 1: From “we built it” */}
               <div className="overflow-hidden pb-1">
@@ -123,6 +113,16 @@ export function Hero() {
                 </motion.span>
               </div>
             </motion.h1>
+
+            {/* Keyword subline: carries the search phrase the H1 copy doesn't */}
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="text-[#6D28D9] font-mono text-[10.5px] sm:text-[12px] uppercase tracking-[0.14em] font-bold mb-3 sm:mb-4"
+            >
+              Go-to-market studio for early-stage B2B SaaS
+            </motion.h2>
 
             {/* Subhead with slide-up */}
             <motion.p

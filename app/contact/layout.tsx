@@ -1,4 +1,14 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "Contact Us", item: `${SITE_URL}/contact` },
+  ],
+};
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -40,5 +50,13 @@ export default function ContactLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

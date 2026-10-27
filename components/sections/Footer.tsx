@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, ArrowUpRight } from "lucide-react";
-import { FOOTER_DATA } from "@/lib/data";
+import { Sparkles, ArrowUpRight, Instagram, Linkedin } from "lucide-react";
+import { FOOTER_DATA, SOCIAL_LINKS } from "@/lib/data";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 
 export function Footer() {
@@ -139,6 +139,24 @@ export function Footer() {
         {/* Bottom Copyright Row */}
         <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/40 font-sans">
           <p>{FOOTER_DATA.copyright}</p>
+          <ul className="flex items-center gap-3">
+            {SOCIAL_LINKS.map((link) => {
+              const Icon = link.id === "linkedin" ? Linkedin : Instagram;
+              return (
+                <li key={link.id}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.label}
+                    className="h-9 w-9 rounded-full border border-white/15 bg-white/5 text-white/70 hover:text-white hover:border-white/40 flex items-center justify-center transition-colors"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </motion.div>
     </footer>

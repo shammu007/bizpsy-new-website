@@ -171,7 +171,8 @@ const jsonLdData = {
         availableLanguage: ["English", "Tamil"],
       },
       sameAs: [
-        "https://www.linkedin.com/company/bizpsy",
+        "https://www.linkedin.com/company/bizpsy-gtm-studio/",
+        "https://www.instagram.com/bizpsy.in/",
       ],
     },
     {

@@ -441,4 +441,8 @@ export const FOOTER_DATA = {
     { label: "Why Choose Us", href: "/#why-choose-us" },
     { label: "Contact Us", href: "/contact" },
   ],
+  socialLinks: [
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/bizpsy-gtm-studio/" },
+    { label: "Instagram", href: "https://www.instagram.com/bizpsy.in/" },
+  ],
 };

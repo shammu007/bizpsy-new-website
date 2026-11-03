@@ -427,8 +427,8 @@ export const CTA_BANNER_DATA = {
 export const FOOTER_DATA = {
   logoText: "BizPsy",
   tagline:
-    "Easily adapt to changes and scale your operations with our flexible infrastructure, designed to support your business growth.",
-  newsletterTitle: "Subscribe our newsletter",
+    "BizPsy is a go-to-market studio helping early-stage B2B SaaS founders turn unclear positioning into a predictable customer acquisition system.",
+  newsletterTitle: "Subscribe to our newsletter",
   newsletterPlaceholder: "Enter your email",
   submitLabel: "SUBMIT",
   copyright: "© 2026 BizPsy Inc. All rights reserved.",
@@ -440,5 +440,9 @@ export const FOOTER_DATA = {
   col2Links: [
     { label: "Why Choose Us", href: "/#why-choose-us" },
     { label: "Contact Us", href: "/contact" },
+  ],
+  socialLinks: [
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/bizpsy-gtm-studio/" },
+    { label: "Instagram", href: "https://www.instagram.com/bizpsy.in/" },
   ],
 };
